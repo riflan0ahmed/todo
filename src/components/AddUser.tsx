@@ -19,7 +19,7 @@ export const AddUser = () => {
       addTodo({
         id: new Date().toISOString(),
         title: name,
-        completed: false,
+        activeState: false,
         endDate: new Date(),
       })
     );

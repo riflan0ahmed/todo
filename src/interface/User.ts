@@ -2,6 +2,6 @@
 export interface IUser {
   id: string;
   title: string;
-  completed: boolean;
+  activeState: boolean;
   endDate: Date;
 }

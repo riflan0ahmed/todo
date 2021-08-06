@@ -12,18 +12,18 @@ export const User = (props: { user: IUser }) => {
 
   // Active Style State Function()
   const handleCheck = (user: IUser) => {
-    dispatch(checkTodo({ ...user, completed: !user.completed }));
+    dispatch(checkTodo({ ...user, activeState: !user.activeState }));
   };
 
   return (
     <li
-      key={props.user.id}
-      className={`${props.user.completed === true ? "bg-yellow-500" : null}`}
+      className={`${props.user.activeState === true ? "bg-yellow-500" : null}`}
     >
       <input
         type="checkbox"
         onClick={() => handleCheck(props.user)}
-        checked={props.user.completed}
+        checked={props.user.activeState}
+        onChange={(e) => e.target.checked}
       />
       {props.user.title}
       <button

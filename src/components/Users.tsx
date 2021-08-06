@@ -47,7 +47,7 @@ export const Users = () => {
           </button>
         )}
 
-        {users ? users.map((user) => <User user={user} />) : null}
+        {users ? users.map((user) => <User key={user.id} user={user} />) : null}
       </ul>
     </>
   );
