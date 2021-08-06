@@ -1,16 +1,16 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  getUsers,
+  getTasks,
   orderTodo,
   orderRandomDateAsc,
   orderRandomDateDes,
 } from "../redux/todoSlice";
-import { User } from "./User";
+import { Task } from "./Task";
 
-export const Users = () => {
+export const TaskList = () => {
   const [isVisible, setIsVisible] = useState(true);
-  const users = useSelector(getUsers);
+  const tasks = useSelector(getTasks);
   const dispatch = useDispatch();
 
   // Row Ascending/Descending Order Function()
@@ -47,7 +47,7 @@ export const Users = () => {
           </button>
         )}
 
-        {users ? users.map((user) => <User key={user.id} user={user} />) : null}
+        {tasks ? tasks.map((task) => <Task key={task.id} task={task} />) : null}
       </ul>
     </>
   );

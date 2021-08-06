@@ -1,16 +1,16 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../store";
-import { IUser } from "../interface/User";
+import { ITask } from "../interface/Task";
 
 // Define a type for the slice state
 export interface TodoState {
-  users: IUser[] | null;
-  user: IUser | null;
+  tasks: ITask[] | null;
+  task: ITask | null;
 }
 
 // Define the initial state using that type
 const initialState: TodoState = {
-  users: [
+  tasks: [
     {
       id: "1",
       title: "todo1",
@@ -42,36 +42,36 @@ const initialState: TodoState = {
       endDate: new Date("2020-07-20"),
     },
   ],
-  user: null,
+  task: null,
 };
 
 export const todoSlice = createSlice({
   name: "todo",
   initialState: initialState,
   reducers: {
-    addTodo: (state: TodoState, action: PayloadAction<IUser>) => {
-      state.user = action.payload;
-      const newUser = state.user;
-      state.users?.push(newUser);
+    addTodo: (state: TodoState, action: PayloadAction<ITask>) => {
+      state.task = action.payload;
+      const newTask = state.task;
+      state.tasks?.push(newTask);
     },
     deleteTodo: (state: TodoState, action: PayloadAction<string>) => {
-      const filterUser = state.users?.filter(
-        (user) => user.id !== action.payload
+      const filterTask = state.tasks?.filter(
+        (task) => task.id !== action.payload
       );
-      state.users = filterUser as IUser[];
+      state.tasks = filterTask as ITask[];
     },
-    checkTodo: (state: TodoState, action: PayloadAction<IUser>) => {
-      const index = state.users?.findIndex(
+    checkTodo: (state: TodoState, action: PayloadAction<ITask>) => {
+      const index = state.tasks?.findIndex(
         (i) => i.id === action.payload.id
       ) as number;
-      const list = state.users as IUser[];
+      const list = state.tasks as ITask[];
       list[index] = action.payload;
     },
     orderTodo: (state: TodoState) => {
-      state.users?.reverse();
+      state.tasks?.reverse();
     },
     orderRandomDateAsc: (state: TodoState) => {
-      const list = state.users as IUser[];
+      const list = state.tasks as ITask[];
       list.sort(function (a, b) {
         var c = new Date(a.endDate) as any;
         var d = new Date(b.endDate) as any;
@@ -79,7 +79,7 @@ export const todoSlice = createSlice({
       });
     },
     orderRandomDateDes: (state: TodoState) => {
-      const list = state.users as IUser[];
+      const list = state.tasks as ITask[];
       list.sort(function (a, b) {
         var c = new Date(a.endDate) as any;
         var d = new Date(b.endDate) as any;
@@ -99,6 +99,6 @@ export const {
 } = todoSlice.actions;
 
 // Other code such as selectors can use the imported `RootState` type
-export const getUsers = (state: RootState) => state.todo.users;
+export const getTasks = (state: RootState) => state.todo.tasks;
 
 export default todoSlice.reducer;

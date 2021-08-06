@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addTodo } from "../redux/todoSlice";
 
-export const AddUser = () => {
+export const Create = () => {
   const [name, setName] = useState("");
 
   const dispatch = useDispatch();

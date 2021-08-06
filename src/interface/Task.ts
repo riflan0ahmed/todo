@@ -1,5 +1,5 @@
 // Define an interface
-export interface IUser {
+export interface ITask {
   id: string;
   title: string;
   activeState: boolean;
