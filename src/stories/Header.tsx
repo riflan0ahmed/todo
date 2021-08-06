@@ -1,17 +1,17 @@
 import React from "react";
 
-import { Button } from "./Button";
+import { Button } from "./Button/Button";
 import "./header.css";
 
 interface HeaderProps {
-  task?: {};
+  user?: {};
   onLogin: () => void;
   onLogout: () => void;
   onCreateAccount: () => void;
 }
 
 export const Header = ({
-  task,
+  user,
   onLogin,
   onLogout,
   onCreateAccount,
@@ -43,7 +43,7 @@ export const Header = ({
         <h1>Acme</h1>
       </div>
       <div>
-        {task ? (
+        {user ? (
           <Button size="small" onClick={onLogout} label="Log out" />
         ) : (
           <>
