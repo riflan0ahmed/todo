@@ -22,18 +22,7 @@ export const TaskList = ({
     </div>
   );
 
-  if (loading)
-    return (
-      <div className="list-items">
-        {LoadingRow}
-        {LoadingRow}
-        {LoadingRow}
-        {LoadingRow}
-        {LoadingRow}
-        {LoadingRow}
-        {LoadingRow}
-      </div>
-    );
+  if (loading) return <div className="list-items">{LoadingRow}</div>;
   if (tasks.length === 0)
     return (
       <div className="list-items">
@@ -47,17 +36,17 @@ export const TaskList = ({
       </div>
     );
 
-  const tasksInOrder = [
-    ...tasks.filter((t: any) => t.state === "TASK_PINNED"),
-    ...tasks.filter((t: any) => t.state !== "TASK_PINNED"),
-  ];
+  // const tasksInOrder = [
+  //   ...tasks.filter((t: any) => t.state === "TASK_PINNED"),
+  //   ...tasks.filter((t: any) => t.state !== "TASK_PINNED"),
+  // ];
 
   return (
     <div className="list-items">
-      {tasksInOrder.map((task, index) => (
+      {tasks.map((task, index) => (
         <Task
           key={index}
-          tasks={task}
+          task={task}
           onArchiveTask={onArchivedTask}
           onPinTask={onPinTask}
         />

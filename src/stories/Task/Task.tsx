@@ -2,7 +2,7 @@ import { AiTwotoneStar } from "react-icons/ai";
 import "./task.css";
 
 export interface TaskProps {
-  tasks: {
+  task: {
     id: string;
     title: string;
     state: string;
@@ -11,11 +11,8 @@ export interface TaskProps {
   onPinTask(arg: string): void;
 }
 
-/**
- * Primary UI component for user interaction
- */
 export const Task = ({
-  tasks = {
+  task = {
     id: "01",
     title: "Todo 01",
     state: "state",
@@ -28,26 +25,25 @@ export const Task = ({
       <label className="checkbox">
         <input
           type="checkbox"
-          defaultChecked={tasks.state === "TASK_ARCHIVED"}
+          defaultChecked={task.state === "TASK_ARCHIVED"}
           disabled={true}
           name="checked"
         />
         <span
           className="checkbox-custom"
-          onClick={() => onArchiveTask(tasks.id)}
+          onClick={() => onArchiveTask(task.id)}
         />
       </label>
       <div className="title">
-        <label>{tasks.title}</label>
+        <label>{task.title}</label>
       </div>
 
       <div className="actions" onClick={(event) => event.stopPropagation()}>
-        {tasks.state !== "TASK_ARCHIVED" && (
-          // eslint-disable-next-line jsx-a11y/anchor-is-valid
+        {task.state !== "TASK_ARCHIVED" && (
           <AiTwotoneStar
             size="25"
-            color={`${tasks.state === "TASK_PINNED" ? "aqua" : "white"}`}
-            onClick={() => onPinTask(tasks.id)}
+            color={`${task.state === "TASK_PINNED" ? "gray" : "white"}`}
+            onClick={() => onPinTask(task.id)}
             className="icon"
           />
         )}
