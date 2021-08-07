@@ -39,7 +39,7 @@ export const Task = ({
   return (
     <div
       className="root"
-      style={{ backgroundColor: `${task.activeState ? "LightCyan" : null}` }}
+      style={{ backgroundColor: `${task.activeState ? "LightCyan" : "white"}` }}
     >
       {/* Checkbox */}
       <ThemeProvider theme={theme}>
