@@ -1,24 +1,28 @@
 import { ChangeEvent } from "react";
+import TextField from "@material-ui/core/TextField";
 
 interface InputProps {
   id?: string;
-  placeholder?: string;
+  label: string;
+  variant?: "standard" | "filled" | "outlined";
   value: string;
   onChange: (event: ChangeEvent<HTMLInputElement>) => void;
 }
 
 export const Input = ({
   id = "",
-  placeholder = "",
+  label = "",
   value = "",
+  variant = "standard",
   onChange,
 }: InputProps) => {
   return (
-    <input
+    <TextField
       type="text"
       id={id}
       value={value}
-      placeholder={placeholder}
+      label={label}
+      variant={variant}
       onChange={onChange}
     />
   );

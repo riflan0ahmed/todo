@@ -2,7 +2,7 @@ import { ChangeEvent, useState } from "react";
 import { useDispatch } from "react-redux";
 import { addTodo } from "../redux/todoSlice";
 import { Input } from "../stories/form/Input/Input";
-import { Button } from "../stories/form/Button/Button";
+import { Btn } from "../stories/form/Button/Button";
 
 export const Create = () => {
   const [name, setName] = useState("");
@@ -24,14 +24,28 @@ export const Create = () => {
         endDate: new Date(),
       })
     );
+    setName("");
   };
 
   return (
-    <div className="flex flex-col mx-5 my-5">
-      <label className="my-1 text-left text-gray-600 capitalize">Title</label>
-      <Input placeholder="title" value={name} onChange={handleChange} />
-      {name.length < 3 ? "minimum length is 3 characters" : null}
-      <Button label="Submit" primary={true} onClick={handleSubmit} />
+    <div className="flex flex-col w-2/4 p-10 mx-5 my-5 bg-white 2xl:w-2/5 rounded-xl">
+      <h1 className="mb-5 text-xl font-bold text-gray-700">Create a Todo</h1>
+      {/* <label className="my-2 font-semibold text-gray-500">Title</label> */}
+      <Input
+        label="Title"
+        value={name}
+        variant="filled"
+        onChange={handleChange}
+      />
+      <div className="flex flex-row ml-auto">
+        <Btn
+          label="Submit"
+          onClick={handleSubmit}
+          variant="contained"
+          color="primary"
+          disabled={name.length < 3}
+        />
+      </div>
     </div>
   );
 };

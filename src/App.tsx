@@ -1,6 +1,5 @@
 import { TaskList } from "./components/TaskList";
 import { Header } from "./components/Header";
-import { Create } from "./components/Create";
 
 function App() {
   return (
@@ -12,7 +11,6 @@ function App() {
       </div>
       <Header />
       <TaskList />
-      <Create />
     </div>
   );
 }

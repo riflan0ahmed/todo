@@ -9,9 +9,12 @@ import {
   orderRandomDateAsc,
   orderRandomDateDes,
 } from "../redux/todoSlice";
+import Modal from "@material-ui/core/Modal";
+import { Create } from "./Create";
 
 export const Header = () => {
   const [isVisible, setIsVisible] = useState(true);
+  const [open, setOpen] = useState(false);
   const dispatch = useDispatch();
 
   // Row Ascending/Descending Order Function() using reverse()
@@ -31,6 +34,14 @@ export const Header = () => {
     setIsVisible(true);
   };
 
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   return (
     <div className="grid grid-flow-col grid-cols-2 my-5">
       <div className="my-auto mr-auto">
@@ -43,6 +54,7 @@ export const Header = () => {
             textTransform: "capitalize",
             fontWeight: 700,
           }}
+          onClick={handleOpen}
         >
           Create
         </Button>
@@ -66,6 +78,16 @@ export const Header = () => {
           </IconButton>
         )}
       </div>
+
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="simple-modal-title"
+        aria-describedby="simple-modal-description"
+        className="flex items-center justify-center align-middle"
+      >
+        <Create />
+      </Modal>
     </div>
   );
 };
