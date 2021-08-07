@@ -1,6 +1,6 @@
 import { ChangeEvent } from "react";
 import { MdDelete } from "react-icons/md";
-import style from "./task.module.scss";
+import "./task.css";
 
 export interface TaskProps {
   task: {
@@ -25,9 +25,9 @@ export const Task = ({
   onChange,
 }: TaskProps) => {
   return (
-    <div className={style.root}>
+    <div className="root">
       {/* Checkbox */}
-      <label className={style.checkbox}>
+      <label className="checkbox">
         <input
           type="checkbox"
           defaultChecked={task.activeState === true ? true : false}
@@ -38,12 +38,12 @@ export const Task = ({
       </label>
 
       {/* Title */}
-      <div className={style.title}>
+      <div className="title">
         <label>{task.title}</label>
       </div>
 
       {/* Pinned */}
-      <div className={style.icon} onClick={() => onArchiveTask(task.id)}>
+      <div className="icon" onClick={() => onArchiveTask(task.id)}>
         <MdDelete size="25" color="gray" />
       </div>
     </div>
