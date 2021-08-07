@@ -1,0 +1,15 @@
+.root {
+  @apply flex flex-row bg-white my-5 rounded-full py-1 px-5 shadow-lg w-full;
+
+  .checkbox {
+    @apply my-auto mx-2;
+  }
+
+  .title {
+    @apply font-semibold text-lg mx-auto my-auto capitalize text-gray-500;
+  }
+
+  .icon {
+    @apply focus:bg-gray-200 hover:bg-gray-100 rounded-full p-2 flex justify-end;
+  }
+}

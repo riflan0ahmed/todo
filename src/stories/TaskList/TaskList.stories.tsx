@@ -1,5 +1,5 @@
 import { TaskList } from "./TaskList";
-import * as TaskStories from "../Task/Task.stories";
+import * as TaskStories from "./Task/Task.stories";
 import { ComponentStory } from "@storybook/react";
 
 export default {

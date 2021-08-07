@@ -14,7 +14,7 @@ Default.args = {
   task: {
     id: "01",
     title: "Todo 01",
-    state: "TASK_INBOX",
+    activeState: false,
   },
 };
 
@@ -23,15 +23,16 @@ Pinned.args = {
   task: {
     id: "01",
     title: "Todo 01",
-    state: "TASK_PINNED",
+    activeState: true,
   },
 };
 
-export const Archived = Template.bind({});
-Archived.args = {
-  task: {
-    id: "01",
-    title: "Todo 01",
-    state: "TASK_ARCHIVED",
-  },
-};
+// export const Archived = Template.bind({});
+// Archived.args = {
+//   task: {
+//     id: "01",
+//     title: "Todo 01",
+//     state: "TASK_ARCHIVED",
+//     activeState: false,
+//   },
+// };

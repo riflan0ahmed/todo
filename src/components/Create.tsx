@@ -10,7 +10,7 @@ export const Create = () => {
   const dispatch = useDispatch();
 
   // onChange Function
-  const HandleChange = (event: ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setName(event.currentTarget.value);
   };
 
@@ -29,8 +29,8 @@ export const Create = () => {
   return (
     <div>
       <label>Name</label>
-      <Input placeholder="title" value={name} onChange={HandleChange} />
-      {name.length < 3 ? "minimum length is 3 charactors" : null}
+      <Input placeholder="title" value={name} onChange={handleChange} />
+      {name.length < 3 ? "minimum length is 3 characters" : null}
       <Button label="Submit" primary={true} onClick={handleSubmit} />
     </div>
   );

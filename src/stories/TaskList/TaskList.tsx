@@ -1,16 +1,16 @@
-import { Task } from "../Task/Task";
+import { Task } from "./Task/Task";
 
 interface TaskListProps {
   loading: boolean;
   tasks: [];
-  onPinTask(arg: string): void;
+  // onPinTask(arg: string): void;
   onArchivedTask(arg: string): void;
 }
 
 export const TaskList = ({
   loading = false,
   tasks = [],
-  onPinTask,
+  // onPinTask,
   onArchivedTask,
 }: TaskListProps) => {
   const LoadingRow = (
@@ -43,14 +43,14 @@ export const TaskList = ({
 
   return (
     <div className="list-items">
-      {tasks.map((task, index) => (
+      {/* {tasks.map((task, index) => (
         <Task
           key={index}
           task={task}
-          onArchiveTask={onArchivedTask}
-          onPinTask={onPinTask}
+          onArchiveTask={onArchivedTask(task)}
+          // onPinTask={onPinTask}
         />
-      ))}
+      ))} */}
     </div>
   );
 };
