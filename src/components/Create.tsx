@@ -1,13 +1,12 @@
-import { ChangeEvent, useState } from "react";
-import { useDispatch } from "react-redux";
+import { ChangeEvent, useState, forwardRef } from "react";
 import { addTodo } from "../redux/todoSlice";
 import { Input } from "../stories/form/Input/Input";
 import { Btn } from "../stories/form/Button/Button";
+import { useAppDispatch } from "../redux/hook";
 
-export const Create = () => {
+export const Create = forwardRef(() => {
   const [name, setName] = useState("");
-
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   // onChange Function
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -48,4 +47,4 @@ export const Create = () => {
       </div>
     </div>
   );
-};
+});

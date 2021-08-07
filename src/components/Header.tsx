@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
 import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import { IoMdArrowRoundUp } from "react-icons/io";
@@ -11,11 +10,14 @@ import {
 } from "../redux/todoSlice";
 import Modal from "@material-ui/core/Modal";
 import { Create } from "./Create";
+import { useRef } from "react";
+import { useAppDispatch } from "../redux/hook";
 
 export const Header = () => {
   const [isVisible, setIsVisible] = useState(true);
   const [open, setOpen] = useState(false);
-  const dispatch = useDispatch();
+  const modalRef = useRef(null);
+  const dispatch = useAppDispatch();
 
   // Row Ascending/Descending Order Function() using reverse()
   // const handleDesc = () => {
@@ -80,6 +82,7 @@ export const Header = () => {
       </div>
 
       <Modal
+        ref={modalRef}
         open={open}
         onClose={handleClose}
         aria-labelledby="simple-modal-title"

@@ -1,6 +1,7 @@
 import { ChangeEvent } from "react";
 import { MdDelete } from "react-icons/md";
-import "./task.css";
+// import "./task.css";
+import "./task.scss";
 
 export interface TaskProps {
   task: {
@@ -30,7 +31,7 @@ export const Task = ({
       <label className="checkbox">
         <input
           type="checkbox"
-          defaultChecked={task.activeState === true ? true : false}
+          // defaultChecked={task.activeState === true ? true : false}
           onChange={onChange}
           checked={task.activeState}
           onClick={() => onPinTask(task.id)}

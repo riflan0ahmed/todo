@@ -1,12 +1,12 @@
 import { ChangeEvent } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import { ITask } from "../interface/Task";
 import { getTasks, checkTodo, deleteTodo } from "../redux/todoSlice";
 import { Task } from "../stories/components/Task/Task";
+import { useAppDispatch, useAppSelector } from "../redux/hook";
 
 export const TaskList = () => {
-  const tasks = useSelector(getTasks);
-  const dispatch = useDispatch();
+  const tasks = useAppSelector(getTasks);
+  const dispatch = useAppDispatch();
 
   // Active Style State Function()
   const handleCheck = (task: ITask) => {
@@ -20,7 +20,7 @@ export const TaskList = () => {
 
   // onChange Function
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    console.log(event.target.value);
+    // event.target.value
   };
 
   return (

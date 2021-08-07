@@ -1,5 +1,6 @@
 import Button from "@material-ui/core/Button";
-import "./button.css";
+
+import "./button.scss";
 
 interface ButtonProps {
   variant?: "contained" | "outlined" | "text";
@@ -32,6 +33,7 @@ export const Btn = ({
         marginLeft: "5px",
         marginRight: "5px",
       }}
+      className="button"
     >
       {label}
     </Button>
