@@ -89,7 +89,7 @@ export const Header = () => {
         aria-describedby="simple-modal-description"
         className="flex items-center justify-center align-middle"
       >
-        <Create />
+        <Create setOpen={setOpen} />
       </Modal>
     </div>
   );

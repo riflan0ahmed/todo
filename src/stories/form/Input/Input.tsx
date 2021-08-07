@@ -1,5 +1,7 @@
 import { ChangeEvent } from "react";
 import TextField from "@material-ui/core/TextField";
+import { createTheme } from "@material-ui/core/styles";
+import { ThemeProvider } from "@material-ui/styles";
 
 interface InputProps {
   id?: string;
@@ -9,6 +11,15 @@ interface InputProps {
   onChange: (event: ChangeEvent<HTMLInputElement>) => void;
 }
 
+const theme = createTheme({
+  palette: {
+    primary: {
+      // Purple and green play nicely together.
+      main: "#2196f3",
+    },
+  },
+});
+
 export const Input = ({
   id = "",
   label = "",
@@ -17,13 +28,15 @@ export const Input = ({
   onChange,
 }: InputProps) => {
   return (
-    <TextField
-      type="text"
-      id={id}
-      value={value}
-      label={label}
-      variant={variant}
-      onChange={onChange}
-    />
+    <ThemeProvider theme={theme}>
+      <TextField
+        type="text"
+        id={id}
+        value={value}
+        label={label}
+        variant={variant}
+        onChange={onChange}
+      />
+    </ThemeProvider>
   );
 };

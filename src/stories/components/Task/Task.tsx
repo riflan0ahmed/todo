@@ -1,6 +1,8 @@
+import Checkbox from "@material-ui/core/Checkbox";
 import { ChangeEvent } from "react";
 import { MdDelete } from "react-icons/md";
-// import "./task.css";
+import { createTheme } from "@material-ui/core/styles";
+import { ThemeProvider } from "@material-ui/styles";
 import "./task.scss";
 
 export interface TaskProps {
@@ -15,6 +17,15 @@ export interface TaskProps {
   onChange(event: ChangeEvent<HTMLInputElement>): void;
 }
 
+const theme = createTheme({
+  palette: {
+    primary: {
+      // Purple and green play nicely together.
+      main: "#2196f3",
+    },
+  },
+});
+
 export const Task = ({
   task = {
     id: "01",
@@ -26,17 +37,19 @@ export const Task = ({
   onChange,
 }: TaskProps) => {
   return (
-    <div className="root">
+    <div
+      className="root"
+      style={{ backgroundColor: `${task.activeState ? "LightCyan" : null}` }}
+    >
       {/* Checkbox */}
-      <label className="checkbox">
-        <input
-          type="checkbox"
-          // defaultChecked={task.activeState === true ? true : false}
+      <ThemeProvider theme={theme}>
+        <Checkbox
           onChange={onChange}
           checked={task.activeState}
           onClick={() => onPinTask(task.id)}
+          color="primary"
         />
-      </label>
+      </ThemeProvider>
 
       {/* Title */}
       <div className="title">
